@@ -9,12 +9,10 @@
 *
 */
 
-// Show columns for development
-$susy: (columns: 16, debug: (image: show));
-// Make our container a Suzy container
+$susy: ( columns: 16, debug: (image: show));
 .container {
     height: 100vh;
-    @include container();
+    @include container(1140px);
 }
 
 .sidebar-left {
@@ -30,7 +28,7 @@ $susy: (columns: 16, debug: (image: show));
         height: 60vh;
         background-color: rgba(100, 0, 0, 0.6);
     }
-    .teasers {
+    .teaser {
         height: 20vh;
         background-color: rgba(100, 30, 100, 0.6);
         @include span(2 of 10);
@@ -43,11 +41,11 @@ $susy: (columns: 16, debug: (image: show));
 .sidebar-right {
     height: 80vh;
     background-color: rgba(100, 100, 30, 0.6);
-    @include span(4 of 16);
+    @include span(4 of 16 last);
 }
 
 .footer {
     height: 20vh;
-    background-color: rgba(100, 100, 30, 0.6);
+    background-color: rgba(0, 30, 100, 0.6);
     clear: both;
 }
