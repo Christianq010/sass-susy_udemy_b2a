@@ -20,6 +20,7 @@ This project was downloaded from the course resources.
 * Install breakpoint with `sudo gem install breakpoint`
 * Install compass with `sudo gem install compass`
 * List all gems installed with `gem list`
+* Install additional gems with `sudo gem install someName` and add it in the config.rb file to run.
 
 ### Watching and Compiling your Project using Compass
 * When doing development on your project, you can run the compass watcher to keep your CSS files up to date as changes are made.
@@ -29,3 +30,6 @@ $ cd /path/to/project
 $ compass watch
 ```
 * When it comes time to compile your css files for production use `compass compile --production`
+
+### Emmet Tips
+* `div.teasers*5>{Teasers $}` to create 5 divs with no of divs as variable for content.
