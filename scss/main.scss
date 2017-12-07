@@ -1,6 +1,6 @@
 @import "normalize";
 @import "susy";
-// @import "breakpoint";
+@import "breakpoint";
 // @import "compass";
 
 /*
@@ -9,21 +9,28 @@
 *
 */
 
-$susy: ( columns: 16, debug: (image: show));
+$susy: ( columns: 16, debug: (image: show), global-box-sizing: border-sizing);
+@include border-box-sizing;
+$medium-screen: 720px;
 .container {
-    height: 100vh;
     @include container(1140px);
 }
 
 .sidebar-left {
     height: 80vh;
     background-color: rgba(0, 100, 100, 0.6);
-    @include span(2 of 16);
+    display: none;
+    @include breakpoint($medium-screen) {
+        display: block;
+        @include span(2 of 16);
+    }
 }
 
 .main {
     height: 80vh;
-    @include span(10 of 16);
+    @include breakpoint($medium-screen) {
+        @include span(10 of 16);
+    }
     .content {
         height: 60vh;
         background-color: rgba(100, 0, 0, 0.6);
@@ -31,9 +38,13 @@ $susy: ( columns: 16, debug: (image: show));
     .teaser {
         height: 20vh;
         background-color: rgba(100, 30, 100, 0.6);
-        @include span(2 of 10);
-        &:nth-child(5n) {
-            @include last;
+        padding: gutter(10);
+        @include span(10 of 10);
+        @include breakpoint($medium-screen) {
+            @include span(2 of 10);
+            &:nth-child(5n) {
+                @include last;
+            }
         }
     }
 }
@@ -41,7 +52,11 @@ $susy: ( columns: 16, debug: (image: show));
 .sidebar-right {
     height: 80vh;
     background-color: rgba(100, 100, 30, 0.6);
-    @include span(4 of 16 last);
+    clear: both;
+    @include breakpoint($medium-screen) {
+        clear: none;
+        @include span(4 of 16 last);
+    }
 }
 
 .footer {
